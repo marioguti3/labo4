@@ -1,0 +1,20 @@
+<html xmlns="http://www.thymeleaf.org">
+<header>
+
+</header>
+<header th:insert="~{fragments/changelang.html :: header}">
+    </header>
+
+<body>
+    <div th:replace="~{fragments/changelang.html :: body}">
+    </div>
+    <ul th:each="movie : ${movies}">
+        <li> 
+            <span style="color:blue" th:text="${movie.name},${movie.year}"></span>
+            <span>Editar</span>
+            <button>Eliminar</button>
+        </li>
+    </ul>
+    
+</body>   
+</html>

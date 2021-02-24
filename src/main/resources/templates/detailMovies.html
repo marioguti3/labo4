@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+</header>
+
+<body th:object="${movie}">
+    <form th:action = "*{id} == null?
+    @{/v2/movies} :
+    @{|/v2/movies/*{id}|}"
+
+    th:method="POST"
+    th:value="*{id}">
+<div th:replace="~{fragments/changelang.html :: body}">
+</div>
+<p th:if="*{id} !=null"><span th:text="#{id}"></span><input th:field="{id}"></p>
+<p><span th:text="#{name}"></span><input th:field="*{name}"></p>
+<p><input type="submit" th:value="#{submit}"/></p>
+</form>
+
+
+</body>
+</html>
